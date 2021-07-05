@@ -52,7 +52,7 @@ public class MaidenController : MonoBehaviour, MaidenFighterZInputAction.IInGame
   // Update is called once per frame
   void Update()
   {
-        
+
   }
 
   #endregion
@@ -62,26 +62,23 @@ public class MaidenController : MonoBehaviour, MaidenFighterZInputAction.IInGame
 
   #endregion
 
-
   #region INTERFACE_METHODS
 
   public void OnMove(InputAction.CallbackContext context)
   {
-    maiden.movement = context.ReadValue<float>();
-  }
+    maiden.buffer.Add(eButtons.DOWN);
 
-  public void OnSprint(InputAction.CallbackContext context)
-  {
-    // if (context.interaction is MultiTapInteraction)
-    // {
-    //   maiden.movement = context.ReadValue<float>() * maiden.info.sprintSpeed;
-    // }
-  }
+    var value = context.ReadValue<Vector2>();
+    Debug.Log(value.AngleRounded(Vector2.right, 45.0f));
+    Debug.Log(value.AngleToDirection(Vector2.right));
 
-  public void OnJump(InputAction.CallbackContext context)
-  {
+
+    Debug.Log("Making double tap");
+    maiden.movement = context.ReadValue<Vector2>().x;
+
 
   }
+
 
   public void OnLP(InputAction.CallbackContext context)
   {

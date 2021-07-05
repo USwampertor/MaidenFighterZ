@@ -263,7 +263,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16942
+  m_Name: pb_Mesh30172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 443733755}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1497,7 +1497,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16970
+  m_Name: pb_Mesh30200
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1986,6 +1986,7 @@ MonoBehaviour:
     movementSpeed: 0
     sprintSpeed: 0
     jumpForce: 0
+    health: 0
     LP:
       name: 
       power: 0
@@ -2021,7 +2022,12 @@ MonoBehaviour:
   timesJumped: 0
   health: 0
   energy: 0
+  defaultGroundValue: 2
   movement: 0
+  otherPlayer: {fileID: 0}
+  cam: {fileID: 0}
+  rigidBody: {fileID: 0}
+  buffer: 
 --- !u!54 &919859006
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2875,6 +2881,7 @@ MonoBehaviour:
     movementSpeed: 0
     sprintSpeed: 0
     jumpForce: 0
+    health: 0
     LP:
       name: 
       power: 0
@@ -2910,7 +2917,12 @@ MonoBehaviour:
   timesJumped: 0
   health: 0
   energy: 0
+  defaultGroundValue: 2
   movement: 0
+  otherPlayer: {fileID: 0}
+  cam: {fileID: 0}
+  rigidBody: {fileID: 0}
+  buffer: 
 --- !u!64 &1963186093
 MeshCollider:
   m_ObjectHideFlags: 0

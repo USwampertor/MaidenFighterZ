@@ -8,6 +8,26 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
 [System.Serializable]
+public enum eButtons
+{
+  NONE = 0,
+  UP,
+  UPRIGHT,
+  RIGHT,
+  DOWNRIGHT,
+  DOWN,
+  DOWNLEFT,
+  LEFT,
+  UPLEFT,
+  LPUNCH,
+  MPUNCH,
+  HPUNCH,
+  LKICK,
+  MKICK,
+  HKICK
+}
+
+[System.Serializable]
 public class MaidenAttack
 {
   [SerializeField]
@@ -135,9 +155,13 @@ public class Maiden : MonoBehaviour
 
   public int timesJumped;
 
+  public (Vector2Int, int)[] taps;
+
   public float health;
 
   public float energy;
+
+  public float defaultGroundValue = 150.0f;
 
   #endregion
 
@@ -149,9 +173,15 @@ public class Maiden : MonoBehaviour
 
   public SceneCamera cam;
 
+  public Rigidbody rigidBody;
+
+  public List<eButtons> buffer;
+
   #endregion
 
   #region MONOBEHAVIOR_METHODS
+
+  // Awake is called before anything
 
   // Start is called before the first frame update
   void Start()
@@ -161,15 +191,29 @@ public class Maiden : MonoBehaviour
     health = info.health;
     cam = FindObjectOfType<SceneCamera>();
 #endif
+
+    rigidBody = GetComponent<Rigidbody>();
   }
 
   // Update is called once per frame
   void Update()
   {
     var newDiff = Vector3.right * movement * info.movementSpeed * Time.deltaTime;
-    if (((transform.position + newDiff) - otherPlayer.transform.position).magnitude <= cam.maxFighterDistance)
+    if (otherPlayer != null)
     {
-      transform.position += newDiff;
+      if (((transform.position + newDiff) - otherPlayer.transform.position).magnitude <= cam.maxFighterDistance)
+      {
+        transform.position += newDiff;
+      }
+    }
+  }
+
+  private void OnCollisionEnter(Collision collision)
+  {
+    if ("Floor" == collision.gameObject.tag)
+    {
+      isGrounded = true;
+      timesJumped = 0;
     }
   }
 

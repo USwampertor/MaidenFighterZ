@@ -22,23 +22,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""770459f4-b0c3-4aa8-adcd-49b957c2b736"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Sprint"",
-                    ""type"": ""Value"",
-                    ""id"": ""c9346fd4-ad49-4325-89ec-5e7307f47b90"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": ""MultiTap""
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Value"",
-                    ""id"": ""3388680b-663c-4213-bcb9-82e18bfbc343"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -95,7 +79,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5a2576ad-fd5c-4c2a-8e05-e6b785abe78f"",
-                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -106,7 +90,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b36bb04f-a3c8-4460-9e5d-011bf578c581"",
-                    ""path"": ""<XInputController>/leftStick/x"",
+                    ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Controller"",
@@ -117,7 +101,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""068775d1-8b25-4b3e-b03a-b3c32ef78eef"",
-                    ""path"": ""<SwitchProControllerHID>/leftStick/x"",
+                    ""path"": ""<SwitchProControllerHID>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Switch Pro Controller"",
@@ -128,7 +112,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b30bf374-7d2d-4fb8-a698-4a1d9f522c1b"",
-                    ""path"": ""<DualShockGamepad>/leftStick/x"",
+                    ""path"": ""<DualShockGamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PS4 Controller"",
@@ -139,7 +123,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Arrows"",
                     ""id"": ""8538e340-3253-4227-a6be-1efefa968404"",
-                    ""path"": ""1DAxis"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -148,101 +132,46 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
+                    ""name"": ""Up"",
                     ""id"": ""4fcf88f5-4c7f-4c5c-ae3b-e789e2ce04f1"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""ea6a97b6-76c1-4f41-ae4a-de23faae62af"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f439d02c-b9d0-4dcb-93ae-c6ec843cfc51"",
-                    ""path"": ""<Gamepad>/leftStick/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""527f94b0-ea6a-433f-bb6d-9e9d10b8abba"",
-                    ""path"": ""<XInputController>/leftStick/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4d5ac6bf-17f6-4cc1-a6b6-697c2aef0943"",
-                    ""path"": ""<SwitchProControllerHID>/leftStick/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Switch Pro Controller"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6c7796d3-d3cc-4674-b1ef-c3f7af0b9910"",
-                    ""path"": ""<DualShockGamepad>/leftStick/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PS4 Controller"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Arrows"",
-                    ""id"": ""63af5106-a4ed-4f32-bbf1-725e91c511cd"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""3c522177-5c8a-453a-81a0-f4b86541ed40"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""1ed0bbec-e254-43ca-90a8-88f224c8994b"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""ea6a97b6-76c1-4f41-ae4a-de23faae62af"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""a42b4fe1-31f8-4867-a696-d0191765afec"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""8959ef44-867c-425b-ba04-73b115646cde"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -355,83 +284,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                     ""action"": ""HK"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""33deee98-9671-4a7b-ab04-4647cb28314c"",
-                    ""path"": ""<Gamepad>/leftStick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6eac4ed6-2b3e-425d-bc6e-5aae175ba75f"",
-                    ""path"": ""<XInputController>/leftStick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9cf00297-2dd9-4619-9f4c-e3d6fa5acd71"",
-                    ""path"": ""<SwitchProControllerHID>/leftStick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Switch Pro Controller"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""bae64a5e-19bb-428f-a6ee-84733fa7fe7c"",
-                    ""path"": ""<DualShockGamepad>/leftStick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PS4 Controller"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Arrows"",
-                    ""id"": ""441f7349-e312-473e-93f3-8052bc5e5397"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""3364cef6-4406-4969-b850-de141bdeb661"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""fe242dcc-56ed-4689-85c4-fc7f0449d6a5"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -497,8 +349,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
         // InGame
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
-        m_InGame_Sprint = m_InGame.FindAction("Sprint", throwIfNotFound: true);
-        m_InGame_Jump = m_InGame.FindAction("Jump", throwIfNotFound: true);
         m_InGame_LP = m_InGame.FindAction("LP", throwIfNotFound: true);
         m_InGame_MP = m_InGame.FindAction("MP", throwIfNotFound: true);
         m_InGame_HP = m_InGame.FindAction("HP", throwIfNotFound: true);
@@ -555,8 +405,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
     private readonly InputActionMap m_InGame;
     private IInGameActions m_InGameActionsCallbackInterface;
     private readonly InputAction m_InGame_Move;
-    private readonly InputAction m_InGame_Sprint;
-    private readonly InputAction m_InGame_Jump;
     private readonly InputAction m_InGame_LP;
     private readonly InputAction m_InGame_MP;
     private readonly InputAction m_InGame_HP;
@@ -568,8 +416,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
         private @MaidenFighterZInputAction m_Wrapper;
         public InGameActions(@MaidenFighterZInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_InGame_Move;
-        public InputAction @Sprint => m_Wrapper.m_InGame_Sprint;
-        public InputAction @Jump => m_Wrapper.m_InGame_Jump;
         public InputAction @LP => m_Wrapper.m_InGame_LP;
         public InputAction @MP => m_Wrapper.m_InGame_MP;
         public InputAction @HP => m_Wrapper.m_InGame_HP;
@@ -588,12 +434,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnMove;
-                @Sprint.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnSprint;
-                @Sprint.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnSprint;
-                @Sprint.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnSprint;
-                @Jump.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnJump;
                 @LP.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnLP;
                 @LP.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnLP;
                 @LP.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnLP;
@@ -619,12 +459,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Sprint.started += instance.OnSprint;
-                @Sprint.performed += instance.OnSprint;
-                @Sprint.canceled += instance.OnSprint;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
                 @LP.started += instance.OnLP;
                 @LP.performed += instance.OnLP;
                 @LP.canceled += instance.OnLP;
@@ -695,8 +529,6 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
     public interface IInGameActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
         void OnLP(InputAction.CallbackContext context);
         void OnMP(InputAction.CallbackContext context);
         void OnHP(InputAction.CallbackContext context);
