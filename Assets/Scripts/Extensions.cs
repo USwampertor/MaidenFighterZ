@@ -41,4 +41,9 @@ public static class Extensions
            direction == 315 ? eButtons.DOWNRIGHT:
                               eButtons.RIGHT    ;
   }
+
+  public static void Trim<T>(this List<T> list, int amount)
+  {
+    list.RemoveRange(list.Count - 1 - amount, amount);
+  }
 }

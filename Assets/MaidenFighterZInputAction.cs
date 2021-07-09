@@ -233,7 +233,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""929b7f49-d63a-42cd-87f7-13894d5876b6"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -244,7 +244,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6960f79d-0218-4f66-a60d-975c25fac598"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -255,7 +255,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2b50965b-747b-4a13-8e7a-9b1ffb9ab7a3"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -266,7 +266,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d7e77b49-416b-4110-85bd-2c3a8c6cde54"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -277,7 +277,7 @@ public class @MaidenFighterZInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""44c4cdca-3575-4b0e-964f-01e09e264ef2"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
