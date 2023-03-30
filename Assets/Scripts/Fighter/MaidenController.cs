@@ -71,7 +71,6 @@ public class MaidenController : MonoBehaviour, MaidenFighterZInputAction.IInGame
                     Vector3.right;
 
     var value = context.ReadValue<Vector2>();
-    Debug.Log(context.phase);
 
     if (context.performed)
     {

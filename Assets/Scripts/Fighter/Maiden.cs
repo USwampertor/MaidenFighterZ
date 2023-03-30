@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
+using System.Linq;
+
 [System.Serializable]
 public enum eButtons
 {
@@ -64,9 +66,9 @@ public class MaidenCombo
   public float damage;
   
   [SerializeField]
-  public List<KeyCode> buffer;
+  public List<eButtons> buffer;
 
-  public MaidenCombo(string newName, float newCost, float newDamage, List<KeyCode> keys)
+  public MaidenCombo(string newName, float newCost, float newDamage, List<eButtons> keys)
   {
     name    = newName;
     cost    = newCost;
@@ -139,7 +141,17 @@ public class MaidenInfo
       HK = new MaidenAttack("testHK", 10, 1, 1);
 
       combos = new List<MaidenCombo>();
-      combos.Add(new MaidenCombo("testCombo", 10, 10, new List<KeyCode>()));
+      combos.Add(new MaidenCombo("testCombo", 10, 10, new List<eButtons>()));
+      combos[0].buffer.Add(eButtons.UP);
+      combos[0].buffer.Add(eButtons.UP);
+      combos[0].buffer.Add(eButtons.DOWN);
+      combos[0].buffer.Add(eButtons.DOWN);
+      combos[0].buffer.Add(eButtons.LEFT);
+      combos[0].buffer.Add(eButtons.RIGHT);
+      combos[0].buffer.Add(eButtons.LEFT);
+      combos[0].buffer.Add(eButtons.RIGHT);
+      combos[0].buffer.Add(eButtons.LKICK);
+      combos[0].buffer.Add(eButtons.MKICK);
     }
   }
 }
@@ -240,6 +252,34 @@ public class Maiden : MonoBehaviour
       buffer.RemoveRange(0, buffer.Count - BattleConfiguration.Instance.maxBufferSize);
     }
     hud.UpdateBuffer(buffer);
+    CheckForCombo();
+  }
+
+  public void CheckForCombo()
+  {
+    foreach (var combo in info.combos)
+    {
+      if (buffer.Count >= combo.buffer.Count)
+      {
+        var pieceToCheck = buffer.GetRange(buffer.Count - combo.buffer.Count, combo.buffer.Count);
+        bool cando = true;
+        for(int i = 0; i < pieceToCheck.Count; ++i)
+        {
+          if (pieceToCheck[i] != combo.buffer[i])
+          {
+            cando = false;
+            Debug.Log("Not correct Combo");
+            break;
+          }
+        }
+
+        if (cando)
+        {
+          Debug.Log("Combo with name: " + combo.name + " ongoing...");
+          break;
+        }
+      }
+    }
   }
 
   #endregion

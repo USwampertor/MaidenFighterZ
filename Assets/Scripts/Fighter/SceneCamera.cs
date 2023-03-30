@@ -58,8 +58,10 @@ public class SceneCamera : MonoBehaviour
 
       distanceProportion = Mathf.Clamp(distanceProportion, 0, 1);
 
-      position.y = Vector3.Lerp(zoomInPos, zoomOutPos, distanceProportion).y;
-      position.z = Vector3.Lerp(zoomInPos, zoomOutPos, distanceProportion).z;
+      position.y = Vector3.Lerp(zoomInPos, zoomOutPos, distanceProportion).y +
+        (fighters[0].transform.position.y - fighters[1].transform.position.y);
+      position.z = Vector3.Lerp(zoomInPos, zoomOutPos, distanceProportion).z -
+        (fighters[0].transform.position.y - fighters[1].transform.position.y) * 0.75f;
 
       transform.position = position;
     }

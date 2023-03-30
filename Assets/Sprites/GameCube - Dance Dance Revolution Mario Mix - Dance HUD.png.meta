@@ -291,7 +291,7 @@ TextureImporter:
       213: -1310792219227774407
     second: GameCube - Dance Dance Revolution Mario Mix - Dance HUD_27
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -311,6 +311,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -342,10 +344,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -409,6 +415,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2448,6 +2466,103 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_118: -3359685060996388296
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_65: -4136074161098858459
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_95: -6589346242491493206
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_109: -6553315201490505491
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_119: 2778143752588369282
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_128: -3195616865290332406
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_4: -2578087685132592356
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_77: -535474545081566766
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_41: -6403828564844173119
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_126: -3552667408508733598
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_23: -6614948128945394945
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_116: 1568773099187985518
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_100: 722249365775965821
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_9: -3172035773780089196
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_13: -6095179074431775050
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_37: -1408435077024034998
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_15: -8662764086443008159
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_35: -4914255064816979845
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_91: 3942833486432201803
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_120: -4817157821596820291
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_84: -3826843615884567189
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_93: -7570032537211204047
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_104: 3118942872998897487
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_112: -6020322273466513535
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_127: 5654803331932923313
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_10: -1060163503856162351
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_122: -8568928713186877440
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_11: -4089811224284891811
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_62: 7430139889644000305
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_86: 1844042446238847773
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_110: 441452640491859459
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_106: -1352252296364199275
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_125: -4750760664303176951
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_88: 688317736701866015
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_107: -1377913312710242863
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_129: -1131058292795881884
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_108: -7096453007300648310
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_55: 6990819732953663266
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_61: -9031584579969014778
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_22: 8374997927489252071
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_113: 7858634593582040768
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_2: 7684787907945352163
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_48: 2298172669812981472
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_90: -8774721724967788240
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_114: 4274473706182790094
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_21: 8010376240230520930
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_5: -3993543675360725597
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_131: 9155729997537000915
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_105: 99114509226170519
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_36: 5348423281681046893
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_24: -8494794133321161958
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_57: -7617865340574739504
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_18: 233772355027527386
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_115: 1431802022928673551
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_14: 1167311072057085840
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_20: -734720840058140118
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_97: -3663356394589866485
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_26: -718198845306272636
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_17: -2445956714127012170
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_101: 8956605050284446209
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_94: 1544404583127729412
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_25: -4529663692550330269
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_19: 6388590146644944223
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_0: 2710181223554919017
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_12: -2802491308055604614
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_99: 8409544222495390914
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_27: -1310792219227774407
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_40: -6754044910743303802
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_98: -8931886395552956469
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_124: -7586723545049672412
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_111: -548370936327209657
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_87: 5807373792919657557
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_54: -8459698510445455981
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_85: 5985976978200489448
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_1: 2802755378400251381
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_130: 3655014953613466405
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_89: 1811187183369529724
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_39: 6010442696769109854
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_7: -1771039216668441321
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_59: -1919102980503030295
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_102: 2587273932358214578
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_121: 5084699086849638462
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_117: -6118507324383810663
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_38: 5554644766978621515
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_16: 8328849161611187726
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_42: -8009855325580090655
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_53: -9106999484224231520
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_56: 8444948676094203412
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_34: -3866070786433365126
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_96: -246000458700631401
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_123: -592504701893536063
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_3: 5451921217221624597
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_103: 3330342218664414699
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_6: -2130877911430642311
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_8: 4893347213923920592
+      GameCube - Dance Dance Revolution Mario Mix - Dance HUD_92: 3747690256024115220
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
