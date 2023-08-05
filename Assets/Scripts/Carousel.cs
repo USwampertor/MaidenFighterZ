@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.Events;
+using System.Linq;
+using static UnityEngine.RuleTile.TilingRuleOutput;
+using Unity.VisualScripting;
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(Carousel))]
@@ -50,6 +53,33 @@ public class CarouselEditor : Editor
     var t = target as Carousel;
     DrawDefaultInspector();
 
+    if (GUI.changed)
+    {
+      Debug.Log("B");
+
+
+      var selectableList = t.transform.GetComponentsInChildren<Selectable>(true);
+
+      var list1 = t.selectables.Except(selectableList).ToList();
+
+      // To remove from the list
+      foreach (var selectable in list1)
+      {
+        Debug.Log("B");
+        selectable.gameObject.transform.SetParent(FindObjectOfType<Canvas>().transform, false);
+        t.RemoveFromList(selectable);
+      }
+// 
+// 
+//       var list2 = selectableList.Except(t.selectables).ToList();
+//       // To add to the list
+//       foreach (var selectable in list2)
+//       {
+//         t.AddToList(selectable);
+//       }
+
+    }
+
     EditorGUILayout.Space();
 
     EditorGUILayout.LabelField("Add Button");
@@ -60,7 +90,7 @@ public class CarouselEditor : Editor
 
     if(GUILayout.Button("Delete Button"))
     {
-      t.RemoveFromList(t.selectables.Count - 1);  
+      t.DeleteFromList(t.selectables.Count - 1);  
     }
 
     EditorGUILayout.Space();
@@ -146,6 +176,9 @@ public class CarouselEditor : Editor
 
 public class Carousel : MonoBehaviour
 {
+#if UNITY_EDITOR
+  public bool drawGizmo = true;
+#endif
   /// <summary>
   /// The prefab button that will be instantiated when adding items to the carousel
   /// You can always change this or edit the items inside the carousel
@@ -198,10 +231,15 @@ public class Carousel : MonoBehaviour
 
   // public UnityEvent OnSelectionChange;
 
+  [Tooltip("This is the function to be called")]
   public delegate void Selected(GameObject item);
+
+  [Tooltip("This variable is to be used mainly in code")]
   public event Selected OnSelectionChange;
 
   public UnityEvent OnStart;
+
+  public UnityEvent OnChangeSelection;
 
   protected List<Vector2> carrouselPoints = new List<Vector2>();
 
@@ -240,10 +278,81 @@ public class Carousel : MonoBehaviour
     newCarousel.gameObject.name = "Carousel";
   }
 #endif
+
+  Carousel()
+  {
+#if UNITY_EDITOR
+    EditorApplication.hierarchyChanged += OnChildrenChanged;
+#endif
+  }
+
+
+
+  private void OnEnable()
+  {
+#if UNITY_EDITOR
+    if (Application.isPlaying) { return; }
+    EditorApplication.hierarchyChanged += OnChildrenChanged;
+#endif
+  }
+
+  private void OnDestroy()
+  {
+#if UNITY_EDITOR
+    EditorApplication.hierarchyChanged -= OnChildrenChanged;
+#endif
+  }
+
+  private void OnDisable()
+  {
+#if UNITY_EDITOR
+    EditorApplication.hierarchyChanged -= OnChildrenChanged;
+#endif    
+  }
+
+  private void OnTransformChildrenChanged()
+  {
+#if UNITY_EDITOR
+    OnChildrenChanged();
+#endif
+  }
+
+
+#if UNITY_EDITOR
+  private void OnChildrenChanged()
+  {
+    // Check if there were children being added externally
+    var selectableList = gameObject.transform.GetComponentsInChildren<Selectable>(true);
+
+    var list1 = selectables.Except(selectableList).ToList();
+
+    // To remove from the list
+    foreach( var selectable in list1)
+    {
+      selectable.gameObject.transform.SetParent(FindObjectOfType<Canvas>().transform, false);
+      RemoveFromList(selectable);
+    }
+
+
+    var list2 = selectableList.Except(selectables).ToList();
+    // To add to the list
+    foreach ( var selectable in list2)
+    {
+      AddToList(selectable);
+    }
+
+  }
+#endif
+
   private void OnValidate()
   {
+    
+    
     CalculatePoints();
     SetTransforms();
+
+
+
     // ReorderSiblings();
     // DiffuseSiblings(diffuseButtons);
   }
@@ -302,7 +411,14 @@ public class Carousel : MonoBehaviour
           SetTransforms();
           ReorderSiblings();
           DiffuseSiblings(diffuseButtons);
-          if (OnSelectionChange != null) { OnSelectionChange(newlySelected); }
+          if (OnSelectionChange != null) 
+          { 
+            OnSelectionChange(newlySelected);
+          }
+          if (OnChangeSelection != null)
+          {
+            OnChangeSelection.Invoke();
+          }
         }
       });
 
@@ -340,10 +456,10 @@ public class Carousel : MonoBehaviour
       return;
     }
 
-    AddToList(selectables.Count);
+    AddNewToList(selectables.Count);
   }
 
-  public void RemoveFromList(int index)
+  public void DeleteFromList(int index)
   {
     var toDelete = selectables[index].gameObject;
     GameObject.DestroyImmediate(toDelete);
@@ -360,7 +476,38 @@ public class Carousel : MonoBehaviour
     DiffuseSiblings(diffuseButtons);
   }
 
-  private void AddToList(int i)
+  public void RemoveFromList(Selectable oldItem)
+  {
+    selectables.Remove(oldItem);
+
+    for (int i = 0; i < selectables.Count; ++i)
+    {
+      SetSelectableProperties(i);
+    }
+
+    CalculatePoints();
+    SetTransforms();
+    ReorderSiblings();
+    DiffuseSiblings(diffuseButtons);
+  }
+
+
+  public void AddToList(Selectable newItem)
+  {
+    selectables.Add(newItem);
+
+    for (int index = 0; index < selectables.Count; ++index)
+    {
+      SetSelectableProperties(index);
+    }
+
+    CalculatePoints();
+    SetTransforms();
+    ReorderSiblings();
+    DiffuseSiblings(diffuseButtons);
+  }
+
+  private void AddNewToList(int i)
   {
     var newButton = Instantiate(buttonPrefab, this.transform);
     newButton.name = "New Button " + (i);
@@ -370,7 +517,7 @@ public class Carousel : MonoBehaviour
       newButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = newButton.name;
     }
     
-    var btn = newButton.GetComponent<Button>();
+    var btn = newButton.GetComponent<Selectable>();
     if (i >= selectables.Count)
     {
       selectables.Add(btn);
@@ -380,7 +527,7 @@ public class Carousel : MonoBehaviour
       selectables.Insert(i, btn);
     }
 
-    for (int index = 0; index < selectables.Count; index++)
+    for (int index = 0; index < selectables.Count; ++index)
     {
       SetSelectableProperties(index);
     }
@@ -424,6 +571,8 @@ public class Carousel : MonoBehaviour
   public void SetFrontNavigation(bool isFront)
   {
     // TODO: MAKE IT POSSIBLE TO USE AUTOMATIC
+    if (selectables.Count < 1) { return; }
+
     var navigation = selectables[0].navigation;
     // navigation.mode = isFront ? Navigation.Mode.Automatic : Navigation.Mode.Explicit;
 
@@ -543,7 +692,7 @@ public class Carousel : MonoBehaviour
                     newPoint.x);
       carrouselPoints.Add(newPoint);
     }
-    this.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Abs(2f*maxWidth), Mathf.Abs(2f*maxHeight));
+    this.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Abs(2f*maxWidth) + 50, Mathf.Abs(2f*maxHeight) + 50);
   }
 
   // Update is called once per frame
@@ -736,5 +885,16 @@ public class Carousel : MonoBehaviour
 
     yield return null;
   }
+
+#if UNITY_EDITOR
+
+  private void OnDrawGizmos()
+  {
+    if (drawGizmo)
+    {
+      Gizmos.DrawIcon(this.transform.position, "carousel.png", true);
+    }
+  }
+#endif
 
 }
