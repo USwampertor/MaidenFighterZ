@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class UpdateSprite : MonoBehaviour
 {
   public Image image;
-
+  public Carousel carousel;
   // Start is called before the first frame update
   void Start()
   {
-    Carousel.OnSelectionChange += UpdateImage;
+    carousel.OnSelectionChange += UpdateImage;
   }
 
   // Update is called once per frame
@@ -22,7 +22,6 @@ public class UpdateSprite : MonoBehaviour
 
   public void UpdateImage(GameObject ob)
   {
-    Debug.Log(ob.name);
     image.sprite = ob.transform.GetChild(0).GetComponent<Image>().sprite;
   }
 

@@ -199,7 +199,9 @@ public class Carousel : MonoBehaviour
   // public UnityEvent OnSelectionChange;
 
   public delegate void Selected(GameObject item);
-  public static event Selected OnSelectionChange;
+  public event Selected OnSelectionChange;
+
+  public UnityEvent OnStart;
 
   protected List<Vector2> carrouselPoints = new List<Vector2>();
 
@@ -300,7 +302,7 @@ public class Carousel : MonoBehaviour
           SetTransforms();
           ReorderSiblings();
           DiffuseSiblings(diffuseButtons);
-          OnSelectionChange(newlySelected);
+          if (OnSelectionChange != null) { OnSelectionChange(newlySelected); }
         }
       });
 
@@ -312,7 +314,7 @@ public class Carousel : MonoBehaviour
     previouslySelected = selectables.Count > 0 ? selectables[0].gameObject : null;
     SetInteractability();
     SetFrontNavigation(true);
-
+    OnStart.Invoke();
   }
 
 
@@ -541,7 +543,7 @@ public class Carousel : MonoBehaviour
                     newPoint.x);
       carrouselPoints.Add(newPoint);
     }
-
+    this.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Abs(2f*maxWidth), Mathf.Abs(2f*maxHeight));
   }
 
   // Update is called once per frame
@@ -700,104 +702,6 @@ public class Carousel : MonoBehaviour
       }
       canvaGroup.alpha = 1.0f;
     }
-    /*
-    // WIP using Canvas groups to avoid this fugly mess
-    var side0 = selectables[selectables.Count / 2];
-    
-    var color0 = side0.gameObject.GetComponent<Image>().color;
-    color0 = new Color(color0.r, 
-                       color0.g, 
-                       color0.b,
-                       shouldDiffuse ? 
-                        0.0f : 
-                        1.0f);
-    side0.gameObject.GetComponent<Image>().color = color0;
-
-    var textChild0 = 
-      side0.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
-    var textColor0 = textChild0.color;
-    textColor0 = new Color(textColor0.r, 
-                           textColor0.g, 
-                           textColor0.b, 
-                           0.0f);
-    textChild0.color = textColor0;
-
-
-    for (int i = 0; i < selectables.Count / 2 + 1; ++i)
-    {
-      if (selectables.Count / 2 + i < selectables.Count)
-      {
-        var side1 = selectables[selectables.Count / 2 + i];
-        // side1.gameObject.GetComponent<RectTransform>().SetAsLastSibling();
-
-        var color1 = side1.gameObject.GetComponent<Image>().color;
-        color1 = new Color(color1.r, 
-                           color1.g, 
-                           color1.b, 
-                           shouldDiffuse ? 
-                            2 * i / (float)(selectables.Count + 1) : 
-                            1.0f);
-        
-        side1.gameObject.GetComponent<Image>().color = color1;
-
-        var textChild1 = 
-          side1.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
-        var textColor1 = textChild1.color;
-        textColor1 = new Color(textColor1.r, 
-                               textColor1.g, 
-                               textColor1.b, 
-                               shouldDiffuse ? 
-                                2 * i / (float)(selectables.Count + 1) : 
-                                1.0f);
-        textChild1.color = textColor1;
-      }
-
-      if (selectables.Count / 2 - i > -1)
-      {
-        var side2 = selectables[selectables.Count / 2 - i];
-        // side2.gameObject.GetComponent<RectTransform>().SetAsLastSibling();
-
-        var color2 = side2.gameObject.GetComponent<Image>().color;
-        color2 = new Color(color2.r, 
-                           color2.g, 
-                           color2.b, 
-                           shouldDiffuse ? 
-                            2 * i / (float)(selectables.Count + 1) : 
-                            1.0f);
-        side2.gameObject.GetComponent<Image>().color = color2;
-
-        var textChild2 = 
-          side2.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
-        var textColor2 = textChild2.color;
-        textColor2 = new Color(textColor2.r, 
-                               textColor2.g, 
-                               textColor2.b, 
-                                shouldDiffuse ? 2 * i / (float)(selectables.Count + 1) : 
-                                1.0f);
-        textChild2.color = textColor2;
-      }
-      // Debug.Log((float)(2 * i / (float)(selectables.Count + 1)));
-    }
-
-
-    // selectables[0].gameObject.GetComponent<RectTransform>().SetAsLastSibling();
-
-    var color3 = selectables[0].gameObject.GetComponent<Image>().color;
-    color3 = new Color(color3.r, 
-                       color3.g, 
-                       color3.b, 
-                       1.0f);
-    selectables[0].gameObject.GetComponent<Image>().color = color3;
-
-    var textChild3 = 
-      selectables[0].gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
-    var textColor3 = textChild3.color;
-    textColor3 = new Color(textColor3.r, 
-                           textColor3.g, 
-                           textColor3.b, 
-                           1.0f);
-    textChild3.color = textColor3;
-    */
   }
 
   public IEnumerator ScaleButton(Vector3 previousScale, Vector3 newScale, Selectable obj)
